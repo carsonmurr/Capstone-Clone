@@ -174,7 +174,7 @@ export const register = ({ first_name, last_name, username, password, email}) =>
     const body = JSON.stringify({ first_name, last_name, username, password, email });
     console.log(body);
     // Send a POST request to the register API
-    axios.post('https://workplacewise-y9qkd.ondigitalocean.app/api/auth/register', body, config)
+    axios.post('/api/auth/register', body, config)
         .then((res) => {
             // If successful, dispatch REGISTER_SUCCESS action with user data
             dispatch({
@@ -185,23 +185,36 @@ export const register = ({ first_name, last_name, username, password, email}) =>
             dispatch(createMessage({ registerUser: 'User registered successfully.' }))
         })
         .catch(function (error) {
+            let e = error;
             if (error.response) {
-              // The request was made and the server responded with a status code
-              // that falls out of the range of 2xx
-              console.log(error.response.data);
-              console.log("error:", error.message);
-              console.log(error.response.status);
-              console.log(error.response.headers);
-            } else if (error.request) {
-              // The request was made but no response was received
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-              // http.ClientRequest in node.js
-              console.log(error.request);
+              e = error.response.data;                   // data, status, headers
+              if (error.response.data && error.response.data.error) {
+                e = error.response.data.error;           // my app specific keys override
+              }
+            } else if (error.message) {
+              e = error.message;
             } else {
-              // Something happened in setting up the request that triggered an Error
-              console.log('Error', error.message);
+              e = "Unknown error occured";
             }
-            console.log(error.config);
+            console.log(e);
+            // if (error.response) {
+            //   // The request was made and the server responded with a status code
+            //   // that falls out of the range of 2xx
+            //   console.log("error response: ", error.response)
+            //   console.log(error.response.data);
+            //   console.log("error:", error.message);
+            //   console.log(error.response.status);
+            //   console.log(error.response.headers);
+            // } else if (error.request) {
+            //   // The request was made but no response was received
+            //   // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            //   // http.ClientRequest in node.js
+            //   console.log(error.request);
+            // } else {
+            //   // Something happened in setting up the request that triggered an Error
+            //   console.log('Error', error.message);
+            // }
+            // console.log(error.config);
         // .catch((err) => {
         //     // If there's an error, log it, dispatch error details, and REGISTER_FAIL action
         //     console.log(err.response.data);
