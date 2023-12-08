@@ -172,7 +172,7 @@ export const register = ({ first_name, last_name, username, password, email, emp
 
     // Request body with user registration data
     const body = JSON.stringify({ first_name, last_name, username, password, email, employee_id });
-    console.log(body)
+    console.log(body);
     // Send a POST request to the register API
     axios.post('/api/auth/register', body, config)
         .then((res) => {
@@ -184,15 +184,13 @@ export const register = ({ first_name, last_name, username, password, email, emp
             // Dispatch a message to indicate successful user registration
             dispatch(createMessage({ registerUser: 'User registered successfully.' }))
         })
-        .catch(function (error) {
-            console.log(error.toJSON());
-        // .catch((err) => {
-        //     // If there's an error, log it, dispatch error details, and REGISTER_FAIL action
-        //     console.log(err.response.data);
-        //     dispatch(returnErrors(err.response.data, err.response.status));
-        //     dispatch({
-        //         type: REGISTER_FAIL,
-        //     })
+        .catch((err) => {
+            // If there's an error, log it, dispatch error details, and REGISTER_FAIL action
+            console.log(err.response.data);
+            dispatch(returnErrors(err.response.data, err.response.status));
+            dispatch({
+                type: REGISTER_FAIL,
+            })
         });
 }
 
@@ -231,19 +229,3 @@ export const updatePassword = (newPassword) => (dispatch, getState) => {
             dispatch(returnErrors(err.response.data, err.response.status));
         });
 };
-export const errorUtils = {
-    getError: (error) => {
-      let e = error;
-      if (error.response) {
-        e = error.response.data;                   // data, status, headers
-        if (error.response.data && error.response.data.error) {
-          e = error.response.data.error;           // my app specific keys override
-        }
-      } else if (error.message) {
-        e = error.message;
-      } else {
-        e = "Unknown error occured";
-      }
-      return e;
-    },
-  };
