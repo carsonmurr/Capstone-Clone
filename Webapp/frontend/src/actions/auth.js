@@ -190,7 +190,6 @@ export const register = ({ first_name, last_name, username, password, email}) =>
               // that falls out of the range of 2xx
               console.log(error.response.data);
               console.log("error:", error.message);
-              console.error(error.response.data);
               console.log(error.response.status);
               console.log(error.response.headers);
             } else if (error.request) {
