@@ -1,5 +1,5 @@
 asgiref==3.7.2
-axios==1.6.2
+# axios==1.6.2
 backports.zoneinfo;python_version<"3.9"
 certifi==2023.11.17
 cffi==1.16.0
