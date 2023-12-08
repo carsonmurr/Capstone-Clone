@@ -137,7 +137,7 @@ USE_TZ = True
 
 # STATIC_URL = 'static/'
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "/frontend/static/")
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, "frontend/static"),)
 
 
@@ -153,6 +153,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+# DEVELOPMENT_MODE = True
 
 if DEVELOPMENT_MODE is True:
     DATABASES = {
