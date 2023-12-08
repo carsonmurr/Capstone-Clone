@@ -51,13 +51,31 @@ export const loadUser = () => (dispatch, getState) => {
                 payload: res.data
             });
         })
-        .catch(err => {
-            // If there's an error, dispatch error details and AUTH_ERROR action
-            dispatch(returnErrors(err.response.data, err.response.status));
-            dispatch({
-                type: AUTH_ERROR
-            })
-        });
+        .catch(function (error) {
+            if (error.response) {
+              // The request was made and the server responded with a status code
+              // that falls out of the range of 2xx
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log('Error', error.message);
+            }
+            console.log(error.config);
+          });
+        // .catch(err => {
+        //     // If there's an error, dispatch error details and AUTH_ERROR action
+        //     dispatch(returnErrors(err.response.data, err.response.status));
+        //     dispatch({
+        //         type: AUTH_ERROR
+        //     })
+        // });
 }
 
 // Action to log in a user
@@ -81,14 +99,32 @@ export const login = (username, password) => dispatch => {
                 payload: res.data
             });
         })
-        .catch((err) => {
-            // If there's an error, log it, dispatch error details, and LOGIN_FAIL action
-            console.log(err);
-            dispatch(returnErrors(err.response.data, err.response.status));
-            dispatch({
-                type: LOGIN_FAIL,
-            })
-        });
+        .catch(function (error) {
+            if (error.response) {
+              // The request was made and the server responded with a status code
+              // that falls out of the range of 2xx
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log('Error', error.message);
+            }
+            console.log(error.config);
+          });
+        // .catch((err) => {
+        //     // If there's an error, log it, dispatch error details, and LOGIN_FAIL action
+        //     console.log(err);
+        //     dispatch(returnErrors(err.response.data, err.response.status));
+        //     dispatch({
+        //         type: LOGIN_FAIL,
+        //     })
+        // });
 }
 
 // Action to log out a user
@@ -101,10 +137,28 @@ export const logout = () => (dispatch, getState) => {
                 type: LOGOUT_SUCCESS,
             });
         })
-        .catch(err => {
-            // If there's an error, dispatch error details
-            dispatch(returnErrors(err.response.data, err.response.status));
-        });
+        .catch(function (error) {
+            if (error.response) {
+              // The request was made and the server responded with a status code
+              // that falls out of the range of 2xx
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log('Error', error.message);
+            }
+            console.log(error.config);
+          });
+        // .catch(err => {
+        //     // If there's an error, dispatch error details
+        //     dispatch(returnErrors(err.response.data, err.response.status));
+        // });
 }
 
 // Action to register a new user
