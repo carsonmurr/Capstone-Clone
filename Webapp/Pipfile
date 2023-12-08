@@ -9,7 +9,7 @@ djangorestframework = "*"
 django-rest-knox = "*"
 unidecode = "*"
 pillow = "*"
-
+dj-database-url = "*"
 [dev-packages]
 
 [requires]
