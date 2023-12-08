@@ -130,14 +130,31 @@ export const register = ({ first_name, last_name, username, password, email, emp
             // Dispatch a message to indicate successful user registration
             dispatch(createMessage({ registerUser: 'User registered successfully.' }))
         })
-        .catch((err) => {
-            // If there's an error, log it, dispatch error details, and REGISTER_FAIL action
-            console.log(err.response.data);
-            dispatch(returnErrors(err.response.data, err.response.status));
-            dispatch({
-                type: REGISTER_FAIL,
-            })
-        });
+        .catch(function (error) {
+            if (error.response) {
+              // The request was made and the server responded with a status code
+              // that falls out of the range of 2xx
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            } else if (error.request) {
+              // The request was made but no response was received
+              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+              // http.ClientRequest in node.js
+              console.log(error.request);
+            } else {
+              // Something happened in setting up the request that triggered an Error
+              console.log('Error', error.message);
+            }
+            console.log(error.config);
+        // .catch((err) => {
+        //     // If there's an error, log it, dispatch error details, and REGISTER_FAIL action
+        //     console.log(err.response.data);
+        //     dispatch(returnErrors(err.response.data, err.response.status));
+        //     dispatch({
+        //         type: REGISTER_FAIL,
+        //     })
+        // });
 }
 
 // actions/auth.js
