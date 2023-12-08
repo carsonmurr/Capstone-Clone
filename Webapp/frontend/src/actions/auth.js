@@ -162,7 +162,7 @@ export const logout = () => (dispatch, getState) => {
 }
 
 // Action to register a new user
-export const register = ({ first_name, last_name, username, password, email, employee_id }) => dispatch => {
+export const register = ({ first_name, last_name, username, password, email}) => dispatch => {
     // Headers configuration for the request
     const config = {
         headers: {
@@ -171,7 +171,7 @@ export const register = ({ first_name, last_name, username, password, email, emp
     }
 
     // Request body with user registration data
-    const body = JSON.stringify({ first_name, last_name, username, password, email, employee_id });
+    const body = JSON.stringify({ first_name, last_name, username, password, email });
     console.log(body);
     // Send a POST request to the register API
     axios.post('/api/auth/register', body, config)
