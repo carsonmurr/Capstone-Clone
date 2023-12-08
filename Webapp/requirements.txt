@@ -1,5 +1,5 @@
 asgiref==3.7.2
-backports.zoneinfo;python_version<"3.9"
+backports.zoneinfo==0.2.1
 cffi==1.16.0
 cryptography==41.0.7
 dj-database-url==2.1.0
@@ -11,6 +11,7 @@ npm==0.1.1
 optional-django==0.1.0
 packaging==23.2
 Pillow==10.1.0
+psycopg2==2.9.9
 pycparser==2.21
 pyscopg2==66.0.2
 pytz==2023.3.post1
