@@ -7,7 +7,7 @@ import performanceIcon from '../../images/speedometer.png'
 import clipbaordIcon from '../../images/clipboard.png'
 import settingsIcon from '../../images/setting.png'
 import profileIcon from '../../images/profile.png'
-import logo from '../../images/WorkplaceWise_logo.png'
+// import logo from '../../images/WorkplaceWise_logo.png'
 import { NavLink } from 'react-router-dom';
 import './Header.css'
 
