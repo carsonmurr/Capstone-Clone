@@ -174,7 +174,7 @@ export const register = ({ first_name, last_name, username, password, email}) =>
     const body = JSON.stringify({ first_name, last_name, username, password, email });
     console.log(body);
     // Send a POST request to the register API
-    axios.post('/api/auth/register', body, config)
+    axios.post('https://workplacewise-y9qkd.ondigitalocean.app//api/auth/register', body, config)
         .then((res) => {
             // If successful, dispatch REGISTER_SUCCESS action with user data
             dispatch({
