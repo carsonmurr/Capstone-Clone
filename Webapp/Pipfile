@@ -10,6 +10,8 @@ django-rest-knox = "*"
 unidecode = "*"
 pillow = "*"
 dj-database-url = "*"
+gunicorn = "*"
+pyscopg2 = "*"
 [dev-packages]
 
 [requires]
