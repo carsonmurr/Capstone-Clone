@@ -154,7 +154,7 @@ export const register = ({ first_name, last_name, username, password, email, emp
         //     dispatch({
         //         type: REGISTER_FAIL,
         //     })
-        // });
+        });
 }
 
 // actions/auth.js
