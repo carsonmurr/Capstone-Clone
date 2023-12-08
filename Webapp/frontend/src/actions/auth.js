@@ -132,7 +132,7 @@ export const register = ({ first_name, last_name, username, password, email, emp
         })
         .catch((err) => {
             // If there's an error, log it, dispatch error details, and REGISTER_FAIL action
-            console.log(err);
+            console.log(err.response.data);
             dispatch(returnErrors(err.response.data, err.response.status));
             dispatch({
                 type: REGISTER_FAIL,
