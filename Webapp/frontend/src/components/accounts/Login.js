@@ -52,6 +52,7 @@ export class Login extends Component {
               {/*a function that will be called when the form is submitted */}
               <form onSubmit={this.onSubmit}>
                 <div><h1 className='text-center'> Welcome to WorkplaceWise! </h1> <br /></div>
+                <h1>This is a test</h1>
                 <div className="form-outline mb-4">
                   {/* onChange is a callback function that gets executed whenever the value of an input element changes*/}
                   <input
