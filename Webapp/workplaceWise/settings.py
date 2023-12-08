@@ -48,9 +48,7 @@ INSTALLED_APPS = [
     'tasks_app',
     'calendar_app',
     'discussions_app',
-    'performance_app',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    
+    'performance_app',    
     
 ]
 
